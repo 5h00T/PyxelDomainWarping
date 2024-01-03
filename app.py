@@ -1,10 +1,13 @@
 import pyxel
 import numpy as np
 
+WINDOW_WIDTH = 100
+WINDOW_HEIGHT = 100
+
 class App:
     def __init__(self):
         self.noise = np.vectorize(pyxel.noise)
-        pyxel.init(100, 100)
+        pyxel.init(WINDOW_WIDTH, WINDOW_HEIGHT)
         # カラーパレットを設定
         pyxel.colors.from_list([
             0x111111,
@@ -59,4 +62,5 @@ class App:
             value += self.noise(x, y) * 0.5 ** i
         return value
 
-App()
+if __name__ == "__main__":
+    App()
